@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/PaymentSplitter.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">contracts/</a> PaymentSplitter.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>39/39</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">79.17% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>19/24</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>13/13</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>39/39</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: UNLICENSED
+&nbsp;
+pragma solidity ^0.8.0;
+&nbsp;
+&nbsp;
+contract PaymentSplitter  {
+    event PayeeAdded(address account, uint256 shares);
+    event PaymentReleased(address to, uint256 amount);
+    event PaymentReceived(address from, uint256 amount);
+    address[] private _payees;
+&nbsp;
+    uint public unLockTimePeriod;
+    uint public percentage=50;
+    uint256 private _totalShares;
+    uint256 private _totalReleased;
+&nbsp;
+    mapping(address =&gt; uint256) private _shares;
+    mapping(address =&gt; uint256) private _released;
+    
+    mapping(address=&gt;uint) public userTime;
+    /**
+     * @dev Creates an instance of `PaymentSplitter` where each account in `payees` is assigned the number of shares at
+     * the matching position in the `shares` array.
+     *
+     * All addresses in `payees` must be non-zero. Both arrays must have the same non-zero length, and there must be no
+     * duplicates in `payees`.
+     */
+    constructor(address[] memory payees, uint256[] memory shares_,uint _unLockTimePeriod)  {
+        require(payees.length == shares_.length, "PaymentSplitter: payees and shares length mismatch");
+        require(payees.length &gt; 0, "PaymentSplitter: no payees");
+        unLockTimePeriod=_unLockTimePeriod;
+        for (uint256 i = 0; i &lt; payees.length; i++) {
+            _addPayee(payees[i], shares_[i]);
+            userTime[payees[i]]=block.timestamp;
+        }
+    }
+&nbsp;
+    // pay() to recieve the ethers
+    function pay() public payable {
+            //  msg.value is the amount of wei sent with the message to the contract. 
+            // with this you are setting a minimum amount
+            <span class="missing-if-branch" title="else path not taken" >E</span>require(msg.value &gt; .01 ether);
+            emit PaymentReceived(msg.sender, msg.value);
+           
+    }
+ 
+    /**
+     * @dev Getter for the total shares held by payees.
+     */
+    function totalShares() public view returns (uint256) {
+        return _totalShares;
+    }
+&nbsp;
+    /**
+     * @dev Getter for the total amount of Ether already released.
+     */
+    function totalReleased() public view returns (uint256) {
+        return _totalReleased;
+    }
+&nbsp;
+    /**
+     * @dev Getter for the amount of shares held by an account.
+     */
+    function shares(address account) public view returns (uint256) {
+        return _shares[account];
+    }
+&nbsp;
+    /**
+     * @dev Getter for the amount of Ether already released to a payee.
+     */
+    function released(address account) public view returns (uint256) {
+        return _released[account];
+    }
+&nbsp;
+&nbsp;
+    /**
+     * @dev Getter for the address of the payee number `index`.
+     */
+    function payee(uint256 index) public view returns (address) {
+        return _payees[index];
+    }
+&nbsp;
+    /**
+     * @dev Getter for the amount of payee's releasable Ether.
+     */
+    function releasable(address account) public view returns (uint256) {
+        uint256 totalReceived = address(this).balance + totalReleased();
+        return _pendingPayment(account, totalReceived, released(account));
+    }
+    function sendValue(address payable recipient, uint256 amount) internal {
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(address(this).balance &gt;= amount, "Address: insufficient balance");
+&nbsp;
+        (bool success, ) = recipient.call{value: amount}("");
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(success, "Address: unable to send value, recipient may have reverted");
+    }
+&nbsp;
+&nbsp;
+    /**
+     * @dev Triggers a transfer to `account` of the amount of Ether they are owed, according to their percentage of the
+     * total shares and their previous withdrawals.
+     */
+    function release() public virtual {
+        address payable account=payable(msg.sender);
+        require(userTime[msg.sender]&gt;1,"PaymentSplitter: You don't have share");
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(_shares[account] &gt; 0, "PaymentSplitter: account has no shares");
+        
+        uint256 fullPayment = releasable(account);
+        uint256 payment =(fullPayment*percentage)/100;
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(payment != 0, "PaymentSplitter: account is not due payment");
+        require(userTime[msg.sender]&lt;=block.timestamp,"PaymentSplitter:early withdraw request");
+        userTime[msg.sender]=block.timestamp + unLockTimePeriod;
+        _released[account] += payment;
+        _totalReleased += payment;
+&nbsp;
+        sendValue(account, payment);
+        emit PaymentReleased(account, payment);
+    }
+&nbsp;
+    /**
+     * @dev internal logic for computing the pending payment of an `account` given the token historical balances and
+     * already released amounts.
+     */
+    function _pendingPayment(
+        address account,
+        uint256 totalReceived,
+        uint256 alreadyReleased
+    ) private view returns (uint256) {
+        return ((totalReceived * _shares[account]) /( _totalShares ))- alreadyReleased;
+    }
+&nbsp;
+    /**
+     * @dev Add a new payee to the contract.
+     * @param account The address of the payee to add.
+     * @param shares_ The number of shares owned by the payee.
+     */
+    function _addPayee(address account, uint256 shares_) private {
+        require(account != address(0), "PaymentSplitter: account is the zero address");
+        require(shares_ &gt; 0, "PaymentSplitter: shares are 0");
+        require(_shares[account] == 0, "PaymentSplitter: account already has shares");
+&nbsp;
+        _payees.push(account);
+        _shares[account] = shares_;
+        _totalShares = _totalShares + shares_;
+        emit PayeeAdded(account, shares_);
+    }
+    // to check the contract balance
+    function getContractbalance()public view returns(uint){
+        
+        return address(this).balance;
+    }
+}
+&nbsp;
+// ["0x5B38Da6a701c568545dCfcB03FcB875f56beddC4","0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2","0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db"]
+//  ["0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1","0xFFcf8FDEE72ac11b5c542428B35EEF5769C409f0","0x22d491Bde2303f2f43325b2108D26f1eAbA1e32b"]</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Jul 04 2022 14:20:18 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
